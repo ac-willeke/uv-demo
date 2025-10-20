@@ -17,22 +17,22 @@ repos:
   - id: check-yaml
   - id: check-xml
   - id: end-of-file-fixer
+    exclude: ^\.safety-project\.ini$
   - id: trailing-whitespace
-      # Code Quality
+        # Code Quality
   - id: check-case-conflict
   - id: check-builtin-literals
   - id: check-docstring-first
-      # Security
+        # Security
   - id: detect-private-key
 
     # File validation
-
 - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
   rev: v2.15.0
   hooks:
   - id: pretty-format-toml
     args: [--autofix]
-    exclude: ^pyproject\.toml$
+    exclude: ^pyproject\.toml$|^\.safety-project\.ini$
   - id: pretty-format-yaml
     args: [--autofix, --indent, '2']
 
@@ -60,8 +60,8 @@ repos:
   hooks:
   - id: zizmor
     args: [--no-online-audits]
-        # If you have a custom config file, e.g. .zizmor.yml,
-        # args: [--config, .zizmor.yml, --no-online-audits]
+          # If you have a custom config file, e.g. .zizmor.yml,
+          # args: [--config, .zizmor.yml, --no-online-audits]
 
 - repo: https://github.com/Yelp/detect-secrets
   rev: v1.5.0
