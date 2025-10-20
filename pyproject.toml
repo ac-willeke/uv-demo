@@ -16,7 +16,7 @@ uv-demo = "uv_demo:main"
 [dependency-groups]
 dev = [
   "deptry>=0.23.1",
-  "ipykernel>=6.29.5,<7",
+  "ipykernel>=6.29.5,<8",
   "mypy>=1.18.2",
   "pip>=25.2",
   "pre-commit>=4.3.0",
