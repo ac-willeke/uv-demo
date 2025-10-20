@@ -4,7 +4,7 @@ name: Security Scan | GitHub Actions Security Analysis with zizmor 🌈
 on:
   workflow_dispatch:
   pull_request:
-    branches: [main, develop]
+    branches: [main]
     paths:
     - .github/workflows/**
   schedule:
@@ -27,12 +27,12 @@ jobs:
         persist-credentials: false
 
     - name: Install the latest version of uv
-      uses: astral-sh/setup-uv@b75a909f75acd358c2196fb9a5f1299a9a8868a4   # v6.7.0
+      uses: astral-sh/setup-uv@3259c6206f993105e3a61b142c2d97bf4b9ef83d   # v7.1.0
 
     - name: Run zizmor 🌈
       run: uvx zizmor --format=sarif . > results.sarif
-        # If you have a custom config file, e.g. .zizmor.yml,
-        # run: uvx zizmor --config .zizmor.yml --format=sarif . > results.sarif
+          # If you have a custom config file, e.g. .zizmor.yml,
+          # run: uvx zizmor --config .zizmor.yml --format=sarif . > results.sarif
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

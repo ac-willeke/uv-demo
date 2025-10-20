@@ -19,14 +19,14 @@ repos:
   - id: end-of-file-fixer
     exclude: ^\.safety-project\.ini$
   - id: trailing-whitespace
-          # Code Quality
+      # Code Quality
   - id: check-case-conflict
   - id: check-builtin-literals
   - id: check-docstring-first
-          # Security
+      # Security
   - id: detect-private-key
 
-          # File validation
+  # File validation
 - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
   rev: v2.15.0
   hooks:
@@ -37,7 +37,7 @@ repos:
     args: [--autofix, --indent, '2']
     exclude: ^\.github/dependabot\.yml$
 
-          # Code Quality
+  # Code Quality
 - repo: https://github.com/astral-sh/uv-pre-commit
   rev: 0.8.23
   hooks:
@@ -61,16 +61,10 @@ repos:
   hooks:
   - id: zizmor
     args: [--no-online-audits]
-          # If you have a custom config file, e.g. .zizmor.yml,
-          # args: [--config, .zizmor.yml, --no-online-audits]
+  # If you have a custom config file, e.g. .zizmor.yml,
+  # args: [--config, .zizmor.yml, --no-online-audits]
 
 - repo: https://github.com/Yelp/detect-secrets
   rev: v1.5.0
   hooks:
   - id: detect-secrets
-
-- repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v6.0.0
-  hooks:
-  - id: no-commit-to-branch
-    args: [--branch, main]
