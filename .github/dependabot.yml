@@ -5,7 +5,32 @@
 
 version: 2
 updates:
-  - package-ecosystem: "" # See documentation for possible values
-    directory: "/" # Location of package manifests
-    schedule:
-      interval: "weekly"
+  # GitHub Actions dependencies
+- package-ecosystem: github-actions   # See documentation for possible values
+  directory: /   # Location of package manifests
+  rebase-strategy: auto
+  target-branch: main
+  schedule:
+    interval: weekly
+    time: 06:00
+    timezone: Europe/Oslo
+  groups:
+    github-actions:
+      patterns:
+      - '*'
+
+  # Python dependencies (pip ecosystem for uv projects)
+- package-ecosystem: pip
+  directory: /
+  rebase-strategy: auto
+  target-branch: main
+  schedule:
+    interval: weekly
+    time: 07:00
+    timezone: Europe/Oslo
+  groups:
+    python-dependencies:
+      patterns:
+      - '*'
+      exclude-patterns:
+      - uv-demo*     # Exclude the local package itself
