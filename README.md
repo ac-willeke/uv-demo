@@ -30,7 +30,7 @@ The demo workflows can be customized or removed based on your specific project r
 
 ### Prerequisites
 
-- [uv](https://docs.astral.sh/uv/getting-started/installation/)
+- [uv](https://docs.astral.sh/uv/installation/)
 - [Git](https://git-scm.com/), [GitHub](https://github.com/) account, and [GitHub CLI](https://cli.github.com/)
 - [Task](https://taskfile.dev/installation/)
 - [Docker](https://docs.docker.com/engine/install/) (optional)
@@ -38,7 +38,7 @@ The demo workflows can be customized or removed based on your specific project r
 
 ### Setup
 
-Task is used to automate common development tasks *(see [Taskfile.yml](Taskfile.yml))*. To set up the project without Task, you can follow the instructions in the [Installation Guide](docs/getting-started/installation.md).
+Task is used to automate common development tasks *(see [Taskfile.yml](Taskfile.yml))*. To set up the project without Task, you can follow the instructions in the [Installation Guide](docs/installation.md).
 
 ```bash
 # Clone the repository
@@ -62,24 +62,26 @@ task --list
 To contribute to the project or start your own project based on this demo, follow the steps below:
 
 1. **Setup**:
-   - Follow the setup instructions above or refer to the [Installation Guide](docs/getting-started/installation.md).
-   - Follow the demo walkthrough in the [Quick Start Guide](docs/getting-started/quickstart.md).
+   - Follow the setup instructions above or refer to the [Installation Guide](docs/installation.md).
+   - Follow the demo walkthrough in the [Quick Start Guide](docs/demo-quickstart.md).
 2. **Develop**:
-    - Create a branch for your feature or bug fix.
+    - Create a branch for your feature or bug fix: `feat/<name>` or `fix/<name>`.
     - Make your changes.
     - Ensure code meets the quality standards by running `task check`.
 3. **Integrate**:
     - Check that all CI tests pass locally with `task ci-local`.
     - Push your branch to GitHub.
-    - Create a pull request against the `develop` branch.
+    - Create a pull request against the `main` branch.
     - Await review and merge; your branch will be automatically deleted after merging.
+    - Clean up local git:
+        - enable pruning: `git config --global fetch.prune true`
+        - delete merged branch locally: `git branch -d <branch-name>`
 4. **Deploy**:
-    - Create a git tag for releases (e.g., `v0.1.0`) using `task tag`.
-    - Create a PR from `develop` to `main` to deploy the new release.
+    - Create a git tag for releases (e.g., `v0.0.1`) using `task tag`.
+    - Create a PR from `release/<version>` to `main` to deploy the new release.
     - Once merged to `main`, the CD workflows are triggered:
         - CD Python automatically builds and publishes the package to Test PyPI.
         - CD Docker builds and pushes the container image to GitHub Container Registry.
-    - **NOTE**: Ensure to merge `main` back into `develop` after releases to keep branches in sync.
 
 ### Key Commands
 
@@ -99,8 +101,8 @@ Documentation is available in the [`docs/`](docs/) directory:
 
 ### Getting Started
 
-- **[Installation](docs/getting-started/installation.md)** - Step-by-step setup guide
-- **[Quick Start](docs/getting-started/quickstart.md)** - Get up and running quickly with Taskfile
+- **[Installation](docs/installation.md)** - Step-by-step setup guide
+- **[Quick Start](docs/demo-quickstart.md)** - Get up and running quickly with Taskfile
 
 ### Development
 - **[Development Guide](docs/development.md)** - Complete development workflow and tools
