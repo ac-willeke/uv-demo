@@ -11,9 +11,10 @@ updates:
   rebase-strategy: auto
   target-branch: main
   schedule:
-    interval: weekly
+    interval: monthly
     time: 06:00
     timezone: Europe/Oslo
+  open-pull-requests-limit: 3
   groups:
     github-actions:
       patterns:
@@ -25,9 +26,10 @@ updates:
   rebase-strategy: auto
   target-branch: main
   schedule:
-    interval: weekly
+    interval: monthly
     time: 07:00
     timezone: Europe/Oslo
+  open-pull-requests-limit: 3
   groups:
     python-dependencies:
       patterns:
