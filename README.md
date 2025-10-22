@@ -16,6 +16,7 @@ A demo repository showcasing Python project development and packaging best pract
 
 ## Workflow Statuses
 
+**TODO**: add Docker CI + CD and dependabot?
 | Job | Status | Description |
 |---|---|---|
 | **CI Python** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/ci-python.yml?branch=main&label=&style=flat) | • Pre-commit hooks (ruff, mypy, etc.)<br>• Test coverage with pytest and codecov<br>• Python dependency analysis<br>• Build and test package |

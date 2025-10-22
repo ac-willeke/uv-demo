@@ -15,7 +15,7 @@ jobs:
       contents: read
 
     steps:
-    - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8   # v5.0.0
+    - uses: actions/checkout@v5
       with:
         persist-credentials: false
     - uses: tox-dev/action-pre-commit-uv@246b66536e366bb885f52d61983bf32f7c95e8b1   # v1.0.3
@@ -28,7 +28,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8   # v5.0.0
+      uses: actions/checkout@v5
       with:
         persist-credentials: false
 
@@ -37,7 +37,7 @@ jobs:
       with:
         enable-cache: true
 
-          # TODO: add separate group for ci in .toml
+            # TODO: add separate group for ci in .toml
     - name: Install dependencies
       run: uv sync --group dev
 
@@ -52,8 +52,8 @@ jobs:
     - name: Run tests with coverage
       run: uv run pytest -m "not ci_exclude"
 
-        # Requires CODECOV account from codecov.io
-        # add CODECOV_TOKEN to GitHub repo secrets
+          # Requires CODECOV account from codecov.io
+          # add CODECOV_TOKEN to GitHub repo secrets
     - name: Upload coverage to Codecov
       if: github.event.repository.private == false
       uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7   # v5.5.1
@@ -74,7 +74,7 @@ jobs:
       contents: read
 
     steps:
-    - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8   # v5.0.0
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 0   # Required for setuptools-scm
         persist-credentials: false
