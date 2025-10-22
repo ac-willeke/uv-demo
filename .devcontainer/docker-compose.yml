@@ -15,9 +15,9 @@ services:
       # https://docs.astral.sh/uv/guides/integration/docker/#developing-in-a-container
       # Bind mount the project while retaining .venv with anonymous volume
     - ..:/workspaces:cached
-      # Anonymous volume to preserve .venv directory (prevents overwrite by bind mount)
+        # Anonymous volume to preserve .venv directory (prevents overwrite by bind mount)
     - /workspaces/uv-demo/.venv
-      # Persist UV cache for faster package downloads
+        # Persist UV cache for faster package downloads
     - uv-cache:/root/.cache/uv
 
     # Uncomment the next four lines if you will use a ptrace-based debugger like C++, Go, and Rust.
