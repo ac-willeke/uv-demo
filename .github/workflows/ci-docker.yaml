@@ -64,10 +64,10 @@ jobs:
     - name: Test command line
       run: python --version
 
-    - name: Test uv package
+    - name: Test uv package in container
       run: |
-        uv version
-        uv run uv-demo
+        docker run --rm uv-demo:latest uv version
+        docker run --rm uv-demo:latest uv run uv-demo
 
     - name: Test Docker compose
       run: |
