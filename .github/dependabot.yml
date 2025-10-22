@@ -36,7 +36,7 @@ updates:
           - "*"
         exclude-patterns:
           - uv-demo* # Exclude the local package itself
-  
+
   # Docker - Devcontainers
   - package-ecosystem: "devcontainers"
     directory: /
