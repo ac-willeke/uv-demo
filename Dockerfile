@@ -32,4 +32,4 @@ ENV PATH="/app/.venv/bin:$PATH"
 ENTRYPOINT []
 
 # Run the main script
-CMD ["uv", "run", "uv_demo"]
+CMD ["uv", "run", "uv-demo"]

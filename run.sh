@@ -24,6 +24,6 @@ docker run \
     --volume /app/.venv \
     $INTERACTIVE \
     $(docker build -q .) \
-    uv run uv_demo
+    uv-demo
     $(docker build -q .) \
     "$@"

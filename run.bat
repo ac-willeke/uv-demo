@@ -10,7 +10,7 @@ REM   -v "%CD%:/app"              Mount the current directory to `/app` so code 
 REM   -v "/app/.venv"             Mount the virtual environment separately, so the developer's environment doesn't end up in the container
 REM   -it                         Interactive terminal if available
 REM   %%i                         Build the image, then use it as a run target
-REM   uv run uv_demo              Run the hello script in the container
+REM   uv run uv-demo              Run the hello script in the container
 
 @echo off
 REM Build and run the example Docker image for Windows
@@ -23,7 +23,8 @@ IF "%TERM%"=="" (
     SET INTERACTIVE=-it
 )
 
-FOR /F "delims=" %%i IN ('docker build -q .') DO (
-    docker run --rm -v "%CD%:/app" -v "/app/.venv" %INTERACTIVE% %%i uv run uv_demo
-    
+echo Building Docker image...
+FOR /F "delims=" %%i IN ('docker build -q . 2^>nul') DO (
+    echo Running application...
+    docker run --rm -v "%CD%:/app" -v "/app/.venv" %INTERACTIVE% %%i uv run uv-demo
 )
