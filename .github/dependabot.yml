@@ -5,20 +5,7 @@
 
 version: 2
 updates:
-  # GitHub Actions dependencies
-  - package-ecosystem: github-actions # See documentation for possible values
-    directory: / # Location of package manifests
-    rebase-strategy: auto
-    target-branch: main
-    schedule:
-      interval: monthly
-      time: "06:00"
-      timezone: Europe/Oslo
-    open-pull-requests-limit: 3
-    groups:
-      github-actions:
-        patterns:
-          - "*"
+  # NOTE: GitHub Actions dependencies not included to many conflicts with zizmor scans.
 
   # Python dependencies (pip ecosystem for uv projects)
   - package-ecosystem: pip
@@ -27,7 +14,7 @@ updates:
     target-branch: main
     schedule: # dependabot does not support cron
       interval: monthly
-      time: "07:00"
+      time: "12:00"
       timezone: Europe/Oslo
     open-pull-requests-limit: 3
     groups:
@@ -36,3 +23,14 @@ updates:
           - "*"
         exclude-patterns:
           - uv-demo* # Exclude the local package itself
+
+  # Docker - Devcontainers
+  - package-ecosystem: "devcontainers"
+    directory: /
+    rebase-strategy: auto
+    target-branch: main
+    schedule:
+      interval: monthly
+      time: "18:00"
+      timezone: Europe/Oslo
+# TODO: Check if adding Docker ecosystem would be smart.

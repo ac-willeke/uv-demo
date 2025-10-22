@@ -79,7 +79,7 @@ tasks:
   security-workflows:
     desc: Audit GitHub Actions workflows
     cmds:
-    - zizmor .github/workflows/
+    - uv run zizmor .github/workflows/
     ignore_error: true
 
   # Build and Release
@@ -101,7 +101,7 @@ tasks:
   run:
     desc: Run the CLI application
     cmds:
-    - uv run {{.PROJECT_NAME}}
+    - uv run --no-sync {{.PROJECT_NAME}}
 
   dev-setup:
     desc: Complete development environment setup
