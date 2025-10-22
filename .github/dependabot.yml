@@ -5,20 +5,7 @@
 
 version: 2
 updates:
-  # GitHub Actions dependencies
-  - package-ecosystem: github-actions # See documentation for possible values
-    directory: / # Location of package manifests
-    rebase-strategy: auto
-    target-branch: main
-    schedule:
-      interval: monthly
-      time: "06:00"
-      timezone: Europe/Oslo
-    open-pull-requests-limit: 3
-    groups:
-      github-actions:
-        patterns:
-          - "*"
+  # NOTE: GitHub Actions dependencies not included to many conflicts with zizmor scans.
 
   # Python dependencies (pip ecosystem for uv projects)
   - package-ecosystem: pip
