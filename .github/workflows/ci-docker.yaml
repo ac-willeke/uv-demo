@@ -64,6 +64,11 @@ jobs:
     - name: Test command line
       run: python --version
 
+    - name: Test uv package
+      run: |
+        uv version
+        uv run uv-demo
+
     - name: Test Docker compose
       run: |
         docker compose up -d
