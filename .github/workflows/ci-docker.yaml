@@ -24,6 +24,13 @@ jobs:
       with:
         persist-credentials: false
 
+    - name: Patch pyproject.toml for CI
+      run: |
+        # Replace dynamic version with static version for CI
+        sed -i 's/dynamic = \["version"\]/version = "0.0.1-ci"/' pyproject.toml
+        echo "Patched pyproject.toml for CI build:"
+        grep -A2 -B2 'version.*=' pyproject.toml
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435   # v3.11.1
 
