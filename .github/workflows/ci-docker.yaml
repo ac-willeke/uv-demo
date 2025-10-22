@@ -26,10 +26,24 @@ jobs:
 
     - name: Patch pyproject.toml for CI
       run: |
+        # Show original file
+        echo "Original pyproject.toml:"
+        grep -A3 -B1 'dynamic.*version' pyproject.toml || echo "No dynamic version found"
+
         # Replace dynamic version with static version for CI
-        sed -i 's/dynamic = \["version"\]/version = "0.0.1-ci"/' pyproject.toml
+        sed -i 's/dynamic = \[.*version.*\]/version = "0.0.1-ci"/' pyproject.toml
+
+        # Remove setuptools-scm from build requirements since we're using static version
+        sed -i 's/requires = \["setuptools>=61", "setuptools-scm"\]/requires = ["setuptools>=61"]/' pyproject.toml
+
+        # Comment out setuptools_scm config
+        sed -i 's/^\[tool\.setuptools_scm\]/# [tool.setuptools_scm]/' pyproject.toml
+        sed -i 's/^write_to = /# write_to = /' pyproject.toml
+        sed -i 's/^fallback_version = /# fallback_version = /' pyproject.toml
+
+        # Verify the changes
         echo "Patched pyproject.toml for CI build:"
-        grep -A2 -B2 'version.*=' pyproject.toml
+        grep -A2 -B2 'version.*=' pyproject.toml || echo "No version line found"
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435   # v3.11.1
