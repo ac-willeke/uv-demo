@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose
 {
-	"name": "Existing Docker Compose (Extend)",
+	"name": "UV Demo",
 
 	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
 	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
@@ -24,7 +24,7 @@
 		"ghcr.io/devcontainers-extra/features/go-task:1": {}
 	},
 
-	// Configure tool-specific properties.
+	// Configure VS Code settings specific to the container
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -53,6 +53,8 @@
 				"tamasfe.even-better-toml",
 				"redhat.vscode-yaml",
 				"bierner.markdown-mermaid",
+				"yzhang.markdown-all-in-one",
+				"njpwerner.autodocstring",
 				"samuelcolvin.jinjahtml",
 				"esbenp.prettier-vscode",
 				"charliermarsh.ruff",
@@ -66,9 +68,11 @@
 			],
 			"settings": {
 				// Python interpreter and tools
-				"python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python",
-				"mypy-type-checker.interpreter": ["${workspaceFolder}/.venv/Scripts/python"],
-				"ruff.interpreter": ["${workspaceFolder}/.venv/Scripts/python"],
+				// UV PATH WINDOWS: ${workspaceFolder}/.venv/Scripts/python
+				// UV PATH LINUX/MAC: ${workspaceFolder}/.venv/bin/python
+				"python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+				"mypy-type-checker.interpreter": ["${workspaceFolder}/.venv/bin/python"],
+				"ruff.interpreter": ["${workspaceFolder}/.venv/bin/python"],
 
 				// Formatting
 				"editor.defaultFormatter": "charliermarsh.ruff",
@@ -91,7 +95,6 @@
 				},
 
 				// Copilot
-				"python.analysis.addHoverSummaries": true,
 				"github.copilot.chat.languageContext.inline.typescript.enabled": true,
 				"github.copilot.chat.languageContext.fix.typescript.enabled": true,
 				"github.copilot.chat.generateTests.codeLens": true,
@@ -101,9 +104,6 @@
 					"length": 500,
 					"temperature": 0.1
 				},
-				"github.copilot.chat.followUp": "always",
-				"github.copilot.chat.codeActions": true,
-				"github.copilot.editor.enableAutoCompletions": true,
 
 				// Color customizations
 				"workbench.colorCustomizations": {
@@ -117,7 +117,7 @@
 					"editor.defaultFormatter": "charliermarsh.ruff"
 				},
 				"python.analysis.extraPaths": [],
-				"python.docstring.format": "numpy",
+				"autoDocstring.docstringFormat": "one-line-sphinx",
 				"python.testing.pytestEnabled": true,
 				"python.testing.unittestEnabled": false,
 				"python.testing.pytestArgs": ["tests"],
@@ -144,7 +144,8 @@
 	// Uncomment the next line if you want to keep your containers running after VS Code shuts down.
 	// "shutdownAction": "none",
 
-	// Run commands after the container is created: sets up complete development environment
+	// Run commands after the container is created
+	// Set up the development environment: .venv, install dependencies, etc.
 	"postCreateCommand": "task dev-setup"
 
 	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
