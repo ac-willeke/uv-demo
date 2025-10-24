@@ -4,9 +4,9 @@
   // Python interpreter and tools
   // UV PATH WINDOWS: ${workspaceFolder}/.venv/Scripts/python
 	// UV PATH LINUX/MAC: ${workspaceFolder}/.venv/bin/python
-  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python",
-  "mypy-type-checker.interpreter": ["${workspaceFolder}/.venv/Scripts/python"],
-  "ruff.interpreter": ["${workspaceFolder}/.venv/Scripts/python"],
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "mypy-type-checker.interpreter": ["${workspaceFolder}/.venv/bin/python"],
+  "ruff.interpreter": ["${workspaceFolder}/.venv/bin/python"],
 
   // Formatting
   "editor.defaultFormatter": "charliermarsh.ruff",
