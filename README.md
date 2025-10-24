@@ -16,14 +16,17 @@ A demo repository showcasing Python project development and packaging best pract
 
 ## Workflow Statuses
 
-**TODO**: add Docker CI + CD and dependabot?
 | Job | Status | Description |
 |---|---|---|
 | **CI Python** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/ci-python.yml?branch=main&label=&style=flat) | • Pre-commit hooks (ruff, mypy, etc.)<br>• Test coverage with pytest and codecov<br>• Python dependency analysis<br>• Build and test package |
 | **CD Python** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/cd-python.yml?label=&style=flat) | • Build Python package (wheel + sdist)<br>• Publish to Test PyPI<br>• Triggered by git tags or manually in GitHub |
+| **CI Docker** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/ci-docker.yml?branch=main&label=&style=flat) | • Build and test Docker image |
+| **CD Docker** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/cd-docker.yml?label=&style=flat) | • Build and push Docker image<br>• Publish to GitHub Container Registry<br>• Triggered by git tags or manually in GitHub |
 | **Safety Scan** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/scan-safety.yml?branch=main&label=&style=flat) | • Python dependency scan<br>• Results in GitHub Actions log and on the [Safety](https://platform.safetycli.com/codebases/uv-demo/findings) dashboard |
 | **CodeQL Analysis** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/scan-codeql.yml?branch=main&label=&style=flat) | • Python and GitHub Actions security analysis<br>• Results in [Security](https://github.com/ac-willeke/uv-demo/security/code-scanning) tab |
 | **Zizmor Security** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/scan-zizmor.yml?branch=main&label=&style=flat) | • GitHub Actions security scan<br>• Results in [Security](https://github.com/ac-willeke/uv-demo/security/code-scanning) tab |
+| **Dependabot** |  | • Automated dependency updates<br>• Security vulnerability alerts<br>• Configured via `.github/dependabot.yml` |
+
 
 The demo workflows can be customized or removed based on your specific project requirements. At minimum, we recommend including the **CI Python** workflow for code quality and testing, as well as the Security workflows: **CodeQL**, **Safety**, and **Zizmor**.
 
