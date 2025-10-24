@@ -68,14 +68,17 @@ tasks:
   # Security
   security:
     desc: Run security scans
-    deps: [security-deps, security-workflows]
+    deps: [security-workflows]
 
-  security-deps:
-    desc: Scan for dependency vulnerabilities
-    cmds:
-    - uv run safety scan
-    ignore_error: true
+  # RECOMMENDED: Run Safety in GHA only, auth is set up on the github repo.
+  # Uncomment the following task to enable local safety checks.
+  # security-deps:
+  #  desc: Scan for dependency vulnerabilities
+  #  cmds:
+  #  - uv run safety scan
+  #  ignore_error: true
 
+  # RECOMMENDED: Scan Zizmor locally before running in GHA to catch potential issues early.
   security-workflows:
     desc: Audit GitHub Actions workflows
     cmds:
