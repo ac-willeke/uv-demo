@@ -1,31 +1,19 @@
 version: '3.8'
 services:
-  # Update this to the name of the service you want to work with in your docker-compose.yml file
   app:
-    # Build from dev-specific Dockerfile that extends the production image
     build:
       context: .
       dockerfile: .devcontainer/Dockerfile
 
+    # https://docs.astral.sh/uv/guides/integration/docker/#developing-in-a-container
     volumes:
-      # https://docs.astral.sh/uv/guides/integration/docker/#developing-in-a-container
-      # Bind mount the project while retaining .venv with anonymous volume
-    - ..:/workspaces:cached
-        # Anonymous volume to preserve .venv directory (prevents overwrite by bind mount)
-    - /workspaces/uv-demo/.venv
-        # Persist UV cache for faster package downloads
-    - uv-cache:/root/.cache/uv
+    - ..:/workspaces:cached   # Bind mount: sync project files
+    - /workspaces/uv-demo/.venv   # Anonymous volume: ensure .venv is not overwritten by bind mount
+    - uv-cache:/root/.cache/uv   # Named volume: persist UV cache between container restarts
 
-    # Uncomment the next four lines if you will use a ptrace-based debugger like C++, Go, and Rust.
-    # cap_add:
-    #   - SYS_PTRACE
-    # security_opt:
-    #   - seccomp:unconfined
-
-    # Overrides default command so things don't shut down after the process ends.
-    # default command: uv run de-geodata
+    # Override the default command to keep the container running
     command: sleep infinity
 
+# Named volumes
 volumes:
-  # Persistent volume for UV cache only
   uv-cache:

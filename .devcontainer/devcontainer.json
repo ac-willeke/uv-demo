@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose
 {
-	"name": "Existing Docker Compose (Extend)",
+	"name": "UV Demo",
 
 	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
 	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
@@ -24,7 +24,7 @@
 		"ghcr.io/devcontainers-extra/features/go-task:1": {}
 	},
 
-	// Configure tool-specific properties.
+	// Configure VS Code settings specific to the container
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -144,7 +144,8 @@
 	// Uncomment the next line if you want to keep your containers running after VS Code shuts down.
 	// "shutdownAction": "none",
 
-	// Run commands after the container is created: sets up complete development environment
+	// Run commands after the container is created
+	// Set up the development environment: .venv, install dependencies, etc.
 	"postCreateCommand": "task dev-setup"
 
 	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.

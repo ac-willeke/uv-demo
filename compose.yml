@@ -1,3 +1,4 @@
+# Adapted from: https://github.com/astral-sh/uv-docker-example
 services:
   app:
     # Build the image from the Dockerfile in the current directory
@@ -16,6 +17,6 @@ services:
             # different platform in the container
         ignore:
         - .venv/
-          # Rebuild the image if dependencies change by checking uv.lock
+              # Rebuild the image if dependencies change by checking uv.lock
       - action: rebuild
         path: ./uv.lock
