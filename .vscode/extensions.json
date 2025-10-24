@@ -1,3 +1,5 @@
+// Local VS Code Extension Recommendations
+// Not used by Devcontainer instead recommendations are listed in .devcontainer/devcontainer.json
 {
   "recommendations": [
     // Python extensions
@@ -17,10 +19,16 @@
     "mhutchie.git-graph",
     "donjayamanne.githistory",
 
-    // file support and linters
+    // GitHub Copilot
+    "github.copilot",
+    "github.copilot-chat",
+
+    // File support and linters
     "tamasfe.even-better-toml",
     "redhat.vscode-yaml",
     "bierner.markdown-mermaid",
+    "yzhang.markdown-all-in-one",
+    "njpwerner.autodocstring",
     "samuelcolvin.jinjahtml",
     "esbenp.prettier-vscode", // yaml, markdown
     "charliermarsh.ruff", // python linter
