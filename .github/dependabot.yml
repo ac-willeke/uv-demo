@@ -23,6 +23,8 @@ updates:
           - "*"
         exclude-patterns:
           - uv-demo* # Exclude the local package itself
+    cooldown:
+      default-days: 7
 
   # Docker - Devcontainers
   - package-ecosystem: "devcontainers"
@@ -33,4 +35,6 @@ updates:
       interval: monthly
       time: "18:00"
       timezone: Europe/Oslo
+    cooldown:
+      default-days: 7
 # TODO: Check if adding Docker ecosystem would be smart.
