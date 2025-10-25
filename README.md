@@ -18,7 +18,8 @@ A demo repository showcasing Python project development and packaging best pract
 - [Development Setup](#development-setup)
 - [Development Workflow](#development-workflow)
 - [Documentation](#documentation)
-- [License \& Acknowledgements](#license--acknowledgements)
+- [Acknowledgements](#acknowledgements)
+- [License](#license)
 
 ## Project Overview
 
@@ -206,13 +207,17 @@ The `main` branch is protected with the following rules:
 ## Documentation
 <!-- Links to docs, API references, guides, troubleshooting tips -->
 
-## License & Acknowledgements
-<!-- License info, inspirations, related projects -->
+## Acknowledgements
 
-This project is licensed under the [MIT License](LICENSE) and incorporates best practices from the Python and DevOps communities, including:
+This project incorporates best practices from the Python and DevOps communities, including:
 
-- Astral-sh's [uvDocumentation](https://docs.astral.sh/uv/) and Docker configuration example [astral-sh/uv-docker-example](https://github.com/astral-sh/uv-docker-example)
+- Astral-sh's [uv Documentation](https://docs.astral.sh/uv/) and Docker configuration example [astral-sh/uv-docker-example](https://github.com/astral-sh/uv-docker-example)
 - Eric Riddoch's [Taking Python to Production](https://www.udemy.com/course/setting-up-the-linux-terminal-for-software-development/) course
 - Marvelous MLOps [MLOps with Databricks](https://www.youtube.com/results?search_query=marvelous+mlops) course
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
