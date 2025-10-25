@@ -35,7 +35,6 @@ task check
 
 # single commands:
 task lint-fix           # Format and lint code
-task test-html          # Run tests with HTML coverage
 task build              # Build the package
 ```
 
@@ -74,7 +73,7 @@ xdg-open htmlcov/index.html  # Linux
 
 ```bash
 # Test pre-commit hooks
-echo "test_bad_code = 'not formatted'" >> src/nk_uv_demo/__init__.py
+echo "test_bad_code = 'not formatted'" >> src/uv_demo/__init__.py
 git add .
 git commit -m "Test commit"  # Should trigger pre-commit checks
 ```
@@ -87,7 +86,7 @@ task build
 ls dist/  # Should show .tar.gz and .whl files
 
 # Test installation
-pip install dist/nk_uv_demo-*.whl
+pip install dist/uv_demo-*.whl
 uv-demo
 pip uninstall uv-demo
 ```

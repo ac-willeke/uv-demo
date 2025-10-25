@@ -1,4 +1,9 @@
-# Installation Guide
+# Setup Guide
+
+<!--TODO:
+[ ] review the whole guide
+[ ] add a section for how to use this as a template for new projects.
+-->
 
 This guide will walk you through setting up the **uv-demo** project on your local machine. Ensure you meet the prerequisites and choose the method that best fits your workflow.
 
@@ -7,7 +12,6 @@ This guide will walk you through setting up the **uv-demo** project on your loca
 - [Method 2: Manual setup with uv](#method-2-manual-setup-with-uv)
 - [Method 3: Devcontainer setup with VS Code](#method-3-devcontainer-setup-with-vs-code)
 - [VS Code Integration](#vs-code-integration)
-- [Getting Help](#getting-help)
 
 ## Prerequisites
 
@@ -155,10 +159,3 @@ To use the project package in Jupyter notebooks:
 # add specific version of ipykernel to dev
 uv add --group dev "ipykernel>=6.29.5,<7"
 ```
-
-## Getting Help
-
-If you encounter issues:
-
-1. Check the [troubleshooting guide](./troubleshooting.md).
-2. Run `task help` for detailed workflow information.

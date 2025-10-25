@@ -1,5 +1,9 @@
 # Command Cheatsheet
 
+<!--TODO:
+[ ] review the whole guide
+-->
+
 ## Project Setup Commands
 
 | Description | Command |
@@ -41,7 +45,6 @@
 | Fix linting issues | `task lint-fix` |
 | Run type checking | `task typecheck` |
 | Run tests | `task test` |
-| Run tests with HTML coverage | `task test-html` |
 | Check dependencies | `task deps-check` |
 | Run security scans | `task security` |
 | Run pre-commit hooks | `task pre-commit` |
@@ -196,7 +199,7 @@
 | Check workflow status | `gh run list` (with GitHub CLI) |
 | View specific run | `gh run view <run-id>` (with GitHub CLI) |
 
-## Docker Commands (Future Enhancement)
+## Docker Commands
 
 | Description | Command |
 |-------------|---------|
