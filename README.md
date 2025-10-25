@@ -9,7 +9,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![TestPyPI](https://img.shields.io/badge/TestPyPI-latest-blue)](https://test.pypi.org/project/uv-demo/) [![Coverage](https://codecov.io/gh/ac-willeke/uv-demo/branch/main/graph/badge.svg)](https://codecov.io/gh/ac-willeke/uv-demo) [![Safety](https://img.shields.io/badge/Safety-Dashboard-blue)](https://platform.safetycli.com/codebases/uv-demo/findings)
 
-A demo repository showcasing Python project development and packaging best practices using UV. This project demonstrates project structure, dependency management, containerization with Docker and automated code quality, security scanning and deployment workflows using GitHub Actions.
+A demo repository showcasing Python project development and packaging best practices using [uv](https://docs.astral.sh/uv/getting-started/installation/). This project demonstrates project structure, dependency management, containerization with Docker and automated code quality, security scanning and deployment workflows using GitHub Actions.
 
 **Table of Contents**
 
