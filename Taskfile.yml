@@ -106,6 +106,28 @@ tasks:
     cmds:
     - uv run --no-sync {{.PROJECT_NAME}}
 
+  run-docker:
+    desc: Build and run Docker container (development mode with volume mounts)
+    cmds:
+    - |
+      echo "Building Docker image..."
+      IMAGE_ID=$(docker build -q .)
+      echo "Running application in container..."
+      docker run --rm --volume .:/app --volume /app/.venv $IMAGE_ID
+
+  run-docker-prod:
+    desc: Run production container from GitHub Container Registry
+    cmds:
+    - docker run --rm ghcr.io/ac-willeke/uv-demo:latest
+
+  demo:
+    desc: Run complete demo (Python package and Docker container)
+    cmds:
+    - echo "=== Running Python package ==="
+    - task: run
+    - echo "=== Running Docker container ==="
+    - task: run-docker
+
   dev-setup:
     desc: Complete development environment setup
     deps: [install, check]
@@ -153,6 +175,11 @@ tasks:
       echo ""
       echo "  Testing:"
       echo "    task test         # Run tests"
+      echo ""
+      echo "  Running:"
+      echo "    task run          # Run Python package"
+      echo "    task run-docker   # Run in Docker container"
+      echo "    task demo         # Run complete demo"
       echo ""
       echo "  Release:"
       echo "    task build        # Build package"

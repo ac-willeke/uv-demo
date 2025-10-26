@@ -68,7 +68,7 @@ exclude = [
 ]
 
 line-length = 88
-target-version = "py311"
+target-version = "py312"
 
 [tool.ruff.lint]
 select = [
@@ -79,7 +79,6 @@ select = [
     "B",     # flake8-bugbear: likely bugs and design problems
     "ERA",   # eradicate: commented-out code
     "D",     # pydocstyle: docstring conventions
-    "D417",  # pydocstyle: missing argument descriptions in docstrings
     "N"      # pep8-naming: naming conventions
 ]
 
