@@ -1,15 +1,11 @@
 # Command Cheatsheet
 
-<!--TODO:
-[ ] review the whole guide
--->
-
 ## Project Setup Commands
 
 | Description | Command |
 |-------------|---------|
-| Clone repository | `gh repo clone ac-willeke/nk-uv-demo` |
-| Navigate to directory | `cd nk-uv-demo` |
+| Clone repository | `gh repo clone ac-willeke/uv-demo` |
+| Navigate to directory | `cd uv-demo` |
 | Complete development setup | `task dev-setup` |
 | Install dependencies only | `uv sync` |
 | Install package in development mode | `uv pip install -e .` |
@@ -143,9 +139,9 @@
 | Description | Command |
 |-------------|---------|
 | Install from local wheel | `pip install dist/*.whl` |
-| Test CLI command | `nk-uv-demo` |
-| Test from Test PyPI | `pip install -i https://test.pypi.org/simple/ nk-uv-demo` |
-| Uninstall package | `pip uninstall nk-uv-demo` |
+| Test CLI command | `uv-demo` |
+| Test from Test PyPI | `pip install -i https://test.pypi.org/simple/ uv-demo` |
+| Uninstall package | `pip uninstall uv-demo` |
 
 ## Development Environment Commands
 
@@ -203,8 +199,8 @@
 
 | Description | Command |
 |-------------|---------|
-| Build Docker image | `docker build -t nk-uv-demo .` |
-| Run Docker container | `docker run -it nk-uv-demo` |
+| Build Docker image | `docker build -t uv-demo .` |
+| Run Docker container | `docker run -it uv-demo` |
 | List Docker images | `docker images` |
-| Remove Docker image | `docker rmi nk-uv-demo` |
+| Remove Docker image | `docker rmi uv-demo` |
 | Clean up Docker | `docker system prune` |

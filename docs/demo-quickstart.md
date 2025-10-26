@@ -1,6 +1,6 @@
 # Demo - Quick Start Guide
 
-This demo walks you through the different functionality available in this project. Ensure to complete the [installation](installation.md) first. It is recommended to use VS Code as IDE and to install Task.
+This demo walks you through the different functionality available in this project. Ensure to complete the [setup guide](setup-guide.md) first. It is recommended to use VS Code as IDE and to install Task.
 
 - [1. Test the Package](#1-test-the-package)
 - [2. Explore Development Commands](#2-explore-development-commands)
@@ -93,9 +93,9 @@ pip uninstall uv-demo
 
 ## Next Steps
 
-1. **Learn development workflow**: Read the [Development Guide](./development.md)
-2. **Understand CI/CD**: Check out [Workflows](./ci-cd/workflows.md)
-3. **Contribute**: Follow the development practices in the guide
+1. **Learn development workflow**: Read the [Setup Guide](./setup-guide.md)
+2. **Understand code quality**: Check out [Code and Security Standards](./code-and-security-standards.md)
+3. **Contribute**: Follow the development practices in the guides
 
 ## Command Reference
 
