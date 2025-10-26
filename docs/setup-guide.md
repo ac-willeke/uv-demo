@@ -12,6 +12,7 @@ This guide will walk you through setting up the **uv-demo** project on your loca
 - [Method 2: Manual setup with uv](#method-2-manual-setup-with-uv)
 - [Method 3: Devcontainer setup with VS Code](#method-3-devcontainer-setup-with-vs-code)
 - [VS Code Integration](#vs-code-integration)
+- [GitHub Repository Configuration](#github-repository-configuration)
 
 ## Prerequisites
 
@@ -159,3 +160,33 @@ To use the project package in Jupyter notebooks:
 # add specific version of ipykernel to dev
 uv add --group dev "ipykernel>=6.29.5,<7"
 ```
+
+## GitHub Repository Configuration
+
+If you fork this repository or use it to create your a new repository from scratch, you'll need to configure your GitHub repository to connect with **Test PyPI**, **Safety** and **Code Coverage**. Also, verify that your **security scans** are properly set up.
+
+#### Test PyPI
+
+- Create a [GHA environment](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments) GHA dedicated to publishing to TestPyPI
+  - Navigate to your repository and follow the [GitHub Docs.](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments)
+- Create a [Test PyPI](https://test.pypi.org/) account
+- Create a new "Trusted Publisher" for your repository. This lets PyPI now that your GHA is a trusted source for deploying your package.
+  - Navigate to your account > "Your Projects" > "Publishing"
+  - Add a new pending publisher and fill out the form.
+  - *Note*: set the Environent name to the GHA environment you created above (testpypi).
+
+#### Safety
+
+- Create a [Safety] account
+
+Check you have the following configured in GitHub Settings
+ - Environments: testpypi
+ - Secrets and variables > actions
+   - Repository secrets: SAFETY_API_KEY and CODECOV_TOKEN
+ - Advanced Security:
+   - Dependency graph: enabled
+   - Dependabot alerts: enabled
+   - Dependabot version pudates: ensure this points to your dependabot.yml
+  - Code scanning: CodeQL analysis > View CodeQL workflow: ensure this points to your scan-codeql.yml
+  - Secret Protection: enabled
+  - Push protection: enabled

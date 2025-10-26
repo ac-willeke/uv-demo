@@ -9,7 +9,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![TestPyPI](https://img.shields.io/badge/TestPyPI-latest-blue)](https://test.pypi.org/project/uv-demo/) [![Coverage](https://codecov.io/gh/ac-willeke/uv-demo/branch/main/graph/badge.svg)](https://codecov.io/gh/ac-willeke/uv-demo) [![Safety](https://img.shields.io/badge/Safety-Dashboard-blue)](https://platform.safetycli.com/codebases/uv-demo/findings)
 
-A demo repository showcasing Python project development and packaging best practices using [uv](https://docs.astral.sh/uv/getting-started/installation/). This project demonstrates project structure, dependency management, containerization with Docker and automated code quality, security scanning and deployment workflows using GitHub Actions.
+A demo repository showcasing Python project development and packaging best practices using [uv](https://docs.astral.sh/uv/getting-started/installation/). This project demonstrates project structure, dependency management, containerization with Docker and automated code quality, security scanning and deployment workflows using GitHub Actions (GHA).
 
 **Table of Contents**
 
@@ -29,9 +29,9 @@ This repository serves as a demonstration and learning resource. To use this as 
 <!-- List key features and capabilities -->
 
 - **Python packaging**:
-  - Dependency management with UV
+  - Dependency management with uv
   - Automated versioning using setuptools-scm
-- **GitHub Actions** workflows for CI/CD and security:
+- **GHA** workflows for CI/CD and security:
   - Code quality checks with pre-commit, ruff, mypy, and pytest
   - Security scans with Safety, CodeQL, Dependabot, and Zizmor
   - Python package deployment to Test PyPI
@@ -41,7 +41,7 @@ This repository serves as a demonstration and learning resource. To use this as 
 ### Repository Structure
 <!-- Directory layout -->
 
-- `.github/workflows` - Github Actions for CI/CD pipelines, security scanning and dependency updates. See the [Development Workflow](#Development Workflow) section to learn more about these GHA workflows.
+- `.github/workflows` - GHA for CI/CD pipelines, security scanning and dependency updates (see [GitHub Actions Workflows](#github-actions-workflows)).
 - `pyproject.toml` - Python package config, dependencies, and build settings
 - `Taskfile.yml` - Automated tasks for setting up the dev environment, running code quality checks and more. Run `task help` to see all available tasks or refer to the [Command Cheatsheet](./docs/command-cheatsheet.md).
 
@@ -51,29 +51,26 @@ Full overview of the repository structure is available in the [Repository Struct
 
 | Job | Status | Description |
 |---|---|---|
-| **CI Python** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/ci-python.yml?branch=main&label=&style=flat) | • Pre-commit hooks (ruff, mypy, etc.)<br>• Test coverage with pytest and codecov<br>• Python dependency analysis<br>• Build and test package |
-| **CD Python** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/cd-python.yml?label=&style=flat) | • Build Python package (wheel + sdist)<br>• Publish to Test PyPI<br>• Triggered by git tags or manually in GitHub |
-| **CI Docker** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/ci-docker.yml?branch=main&label=&style=flat) | • Build and test Docker image |
-| **CD Docker** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/cd-docker.yml?label=&style=flat) | • Build and push Docker image<br>• Publish to GitHub Container Registry<br>• Triggered by git tags or manually in GitHub |
-| **Safety Scan** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/scan-safety.yml?branch=main&label=&style=flat) | • Python dependency scan<br>• Results in GitHub Actions log and on the [Safety](https://platform.safetycli.com/codebases/uv-demo/findings) dashboard |
-| **CodeQL Analysis** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/scan-codeql.yml?branch=main&label=&style=flat) | • Python and GitHub Actions security analysis<br>• Results in [Security](https://github.com/ac-willeke/uv-demo/security/code-scanning) tab |
-| **Zizmor Security** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/scan-zizmor.yml?branch=main&label=&style=flat) | • GitHub Actions security scan<br>• Results in [Security](https://github.com/ac-willeke/uv-demo/security/code-scanning) tab |
-| **Dependabot** |  | • Automated dependency updates<br>• Security vulnerability alerts<br>• Configured via `.github/dependabot.yml` |
+| **CI Python** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/ci-python.yml?branch=main&label=&style=flat) | Code quality checks, testing, coverage |
+| **CD Python** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/cd-python.yml?label=&style=flat) | Package deployment to Test PyPI |
+| **CI Docker** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/ci-docker.yml?branch=main&label=&style=flat) | Build and test Docker image |
+| **CD Docker** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/cd-docker.yml?label=&style=flat) | Container deployment to GitHub Registry |
+| **Security Scan - Safety** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/scan-safety.yml?branch=main&label=&style=flat) | Python dependency vulnerability scanning |
+| **Security Scan - CodeQL** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/scan-codeql.yml?branch=main&label=&style=flat) | Python and GHA security analysis |
+| **Security Scan - Zizmor** | ![Status](https://img.shields.io/github/actions/workflow/status/ac-willeke/uv-demo/scan-zizmor.yml?branch=main&label=&style=flat) | GHA workflow security scan |
+| **Dependabot** |  | Automated dependency updates |
 
-
-The demo workflows can be customized or removed based on your specific project requirements. At minimum, I recommend including the **CI Python** workflow for code quality and testing, as well as the Security workflows: **CodeQL**, **Safety**, and **Zizmor**. See the [Development Workflow](#Development Workflow) section to learn more about these GHA workflows.
+Results of the security scans are visible in the [Security](https://github.com/ac-willeke/uv-demo/security/code-scanning) tab of the GitHub repository.
 
 ## Getting Started
 <!-- For end users -->
 
-The **uv-demo** package is an empty package with a single function that prints the package name. You can install this package from Test PyPI or pull the containerized version.
-
-But the value of this repository lies in learning the development tools and seeing the CI/CD pipeline in action. So I recommend following the [Development](#development) section to learn these steps.
+The **uv-demo** package is a minimal package with a single function that prints the package name. You can install this package from [Test PyPI](https://test.pypi.org/project/uv-demo/) or pull the containerized version from [GHCR](https://github.com/ac-willeke/uv-demo/pkgs/container/uv-demo). The main purpose of this repository is to explore development tools and observe the CI/CD pipeline in action. To get started, follow the steps in the [Development Workflow](#development-workflow) section.
 
 ### Installation
 
 > [!NOTE]
-> This package is published to Test PyPI for demonstration purposes. Test PyPI serves as a testing environment for package deployment without affecting the official PyPI index. Do not publish demo packages to the official PyPI index.
+> This package is published to Test PyPI for demonstration purposes. Test PyPI is a testing environment for package deployment without affecting the official PyPI index. If you're using this repo to test out your own deployment pipeline, make sure not to publish test versions to the official PyPI index.
 
 
 Install the demo package from Test PyPI:
@@ -123,12 +120,15 @@ extension
 
 2. **Start the devcontainer**: When prompted, reopen the folder in the Devcontainer. If not prompted, manually trigger it via the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`) and select "Dev Containers: Reopen in Container".
 
-3. **Automatic setup**: The devcontainer will configure:
-   - VS Code settings and extensions
-   - Development tools: Task, uv, pre-commit
-   - Python environment with dependencies
+3. **Automatic setup**: The devcontainer automatically:
+   - Configures VS Code with recommended settings and extensions per [devcontainer.json](.devcontainer/devcontainer.json)
+   - Installs development tools: [Git](https://git-scm.com/), [uv](https://docs.astral.sh/uv/), [pre-commit](https://pre-commit.com/), [Task](https://taskfile.dev/installation/)
+   - Sets up the Python environment with dependencies in `.venv` via `task dev-setup`, which runs `uv sync --dev` and executes code quality checks and test coverage
 
-4. **Test the installation**:
+4. **Test the installation with Task commands**:
+
+    Task is used to automate common development tasks *(see [Taskfile.yml](Taskfile.yml))*.
+
    ```bash
    # Test the package
    task run
@@ -140,31 +140,24 @@ extension
 
    # Run local CI workflow
    task ci-local
+
+   # Clean up
+   task clean
    ```
 
-5. **Explore the demo**: Open `notebooks/demo.ipynb` and select the `.venv` kernel, then follow the [Quick Start Guide](./docs/demo-quickstart.md).
+5. **Test the notebook**: Open `notebooks/demo.ipynb` and select the `.venv` kernel. If you have problems activating the `.venv` refer to the [setup guide](./docs/setup-guide.md).
 
-### Environment Variables
-<!-- List of necessary environment variables
-- variable names
-- descriptions
-- default values (if any)
--->
-
-### Development Tools installed in the Container
-
-- [uv](https://docs.astral.sh/uv/getting-started/installation/)
-- [Git](https://git-scm.com/)
-- [Pre-commit](https://pre-commit.com/)
-- [Task](https://taskfile.dev/installation/)
+6. **Configure the GitHub Repository**: If you fork this repository or use it to create your a new repository from scratch, you'll need to configure your GitHub repository to connect with **Test PyPI**, **Safety** and **Code Coverage**. Also, verify that your **security scans** are properly set up. See the **GitHub Repository Configuration** section in the [setup guide](./docs/setup-guide.md) for instructions.
 
 ## Development Workflow
 
 ### Code Quality Standards
 
-Follow PEP8, use type hints, and include docstrings in reStructuredText format. All quality checks are automated through pre-commit hooks and CI workflows.
+Follow PEP8, use type hints, and include docstrings in reStructuredText format. All quality checks are automated through Task commands, pre-commit hooks and CI workflows.
 
-### GitHub Actions Workflows
+See the [Code Quality and Security Standards](./docs/code-and-security-standards.md) guide to see which rules are enforced in this repo.
+
+### GHA Workflows
 
 The repository includes automated workflows for code quality, security, and deployment:
 
@@ -175,7 +168,11 @@ The repository includes automated workflows for code quality, security, and depl
 | **CD Docker** | `push` to `main` with version tags | Container deployment to GitHub Registry |
 | **Safety Scan** | `push`, `pull_request`, `schedule` | Python dependency vulnerability scanning |
 | **CodeQL Analysis** | `push`, `pull_request`, `schedule` | Code security analysis |
-| **Zizmor Security** | `push`, `pull_request` | GitHub Actions workflow security |
+| **Zizmor Security** | `push`, `pull_request` | GHA workflow security |
+
+
+
+The demo workflows can be customized or removed based on your specific project requirements. At minimum, I recommend including the **CI Python** workflow for code quality and testing, as well as the Security workflows: **CodeQL**, **Safety**, and **Zizmor**.
 
 ### Local Development Commands
 
@@ -196,6 +193,8 @@ task run-docker       # Run in Docker container
 task format           # Format code with ruff
 task security         # Run security scans
 ```
+
+For more commands see: [Command Cheatsheet](./docs/command-cheatsheet.md)
 
 ### Branch Protection
 
